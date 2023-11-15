@@ -17,7 +17,7 @@ var is_running = false
 var velocity = Vector2.ZERO
 var direction = Vector2.ZERO
 func get_input():
-	var direction = Vector2.ZERO
+	direction = Vector2.ZERO
 	if Input.is_action_pressed("ui_left"):
 		direction.x -= 1
 	elif Input.is_action_pressed("ui_right"):
@@ -38,7 +38,7 @@ func get_input():
 	
 
 func _physics_process(delta):
-	var direction = get_input()
+	direction = get_input()
 	if !is_running:
 		velocity.x = move_toward(velocity.x, direction.x * walk_speed, acceleration)
 	else:
