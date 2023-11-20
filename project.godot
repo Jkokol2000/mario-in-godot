@@ -12,7 +12,10 @@ config_version=4
 
 config/name="Mario"
 run/main_scene="res://World1-1.tscn"
-config/icon="res://Images/icon.png"
+
+[autoload]
+
+GlobalVariables="*res://GlobalVariables.gd"
 
 [gui]
 
