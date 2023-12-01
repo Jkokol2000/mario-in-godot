@@ -51,7 +51,6 @@ func _process(_delta):
 		$MarioHitbox.shape.extents = Vector2(61, 175)
 func _physics_process(delta):
 	direction = get_input()
-	print(velocity.y)
 	if !is_running:
 		velocity.x = move_toward(velocity.x, direction.x * walk_speed, acceleration)
 	else:
@@ -64,16 +63,5 @@ func _physics_process(delta):
 		get_node("MarioSprites").set_flip_h(true)
 	elif direction.x > 0:
 		get_node("MarioSprites").set_flip_h(false)
-	if (direction.x < 0 and velocity.x > 0 or direction.x > 0 and velocity.x < 0) and is_running:
-		_animated_sprite.play(current_powerup + "_TurnAround")
 	velocity = move_and_slide(velocity, Vector2.UP)
-	
 
-	
-
-
-func _on_MushroomPickup_body_entered(body):
-	if body.name == "Mario":
-		get_parent().get_node("Mushroom").queue_free()
-		current_powerup = "bigMario"
-		print(current_powerup)
